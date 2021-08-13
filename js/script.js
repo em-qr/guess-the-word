@@ -126,7 +126,33 @@ const updateWordInProgress = function (guessedLetters){
 const checkIfWin = function () {
    if (word.toUpperCase() === wordInProgress.innerText) {
      message.classList.add("win");
-     message.innerHTML = `<p class="highlight">You guessed correct the word! Congrats!</p>`;
+     message.innerHTML = `<p class="highlight">You guessed the word correctly! Congrats!</p>`;
    }
 };
 
+const startOver = function() {
+  guessLetterButton.classList.add("hide");
+  remainingGuessesElement.classList.add("hide");
+  guessedLettersElement.classList.add("hide");
+  playAgainButton.classList.add("hide");
+};
+
+playAgainButton.addEventListener("click" , function() {
+  message.classList.remove("win");
+  message.innerText = "";
+  guessedLetters = [];
+  remainingGuesses = 8;
+  remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
+  guessedLettersElement.innerHTML = "";
+
+  //grab a new word
+
+  getWord();
+
+  //show the right UI elements
+
+  guessLetterButton.classList.remove("hide");
+  playAgainButton.classList.add("hide");
+  remainingGuessesElement.classList.remove("hide");
+  guessedLettersElement.classList.remove("hide");
+});
