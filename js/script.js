@@ -116,7 +116,8 @@ const updateWordInProgress = function (guessedLetters){
 
    if (remainingGuesses === 0) {
      message.innerHTML = `Game over! the word was <span class = "highlight">${word}</span>.`;
-   } else if (remainingGuesses === 1 ) {
+     startOver();
+    } else if (remainingGuesses === 1 ) {
      remainingGuessesSpan.innerText = `${remainingGuesses} guess`;
    } else {
      remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
