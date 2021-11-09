@@ -130,6 +130,7 @@ const updateWordInProgress = function (guessedLetters){
 const checkIfWin = function () {
    if (word.toUpperCase() === wordInProgress.innerText) {
      message.classList.add("win");
+<<<<<<< HEAD
      message.innerHTML = `<p class="highlight">You guessed correct the word! Congrats!</p>`;
    
 
@@ -147,18 +148,48 @@ const startOver = function () {
 playAgainButton.addEventListener("click", function () {
   // reset all original values - grab new word
   message.classList.remove("win");
+=======
+     message.innerHTML = `<p class="highlight">You guessed the word correctly! Congrats!</p>`;
+   }
+};
+
+const startOver = function() {
+  guessLetterButton.classList.add("hide");
+  remainingGuessesElement.classList.add("hide");
+  guessedLettersElement.classList.add("hide");
+  playAgainButton.classList.add("hide");
+};
+
+playAgainButton.addEventListener("click" , function() {
+  message.classList.remove("win");
+  message.innerText = "";
+>>>>>>> 649f185... Changing of wording for congratulations message
   guessedLetters = [];
   remainingGuesses = 8;
   remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
   guessedLettersElement.innerHTML = "";
+<<<<<<< HEAD
   message.innerText = "";
   // Grab a new word
   getWord();
 
   // show the right UI elements
+=======
+
+  //grab a new word
+
+  getWord();
+
+  //show the right UI elements
+
+>>>>>>> 649f185... Changing of wording for congratulations message
   guessLetterButton.classList.remove("hide");
   playAgainButton.classList.add("hide");
   remainingGuessesElement.classList.remove("hide");
   guessedLettersElement.classList.remove("hide");
+<<<<<<< HEAD
 });
 
+=======
+});
+>>>>>>> 649f185... Changing of wording for congratulations message
